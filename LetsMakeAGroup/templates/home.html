@@ -1,0 +1,204 @@
+{% extends "basic.html" %}
+    {% block title %}
+    <title>Home</title>
+    {% endblock %}
+
+    {% block container %}
+    <div class="container">
+      <div class="home_portrait">
+        <img src="{%url 'infophoto' pageowner.info.id%}" class="img-thumbnail">
+      </div>
+      {% if otherpage %}
+      <div class="home_follow">
+        {% if addsent == "1" %}
+        <p style="color: white">Request Sent</p>
+        {% else %}
+        <a href="/follow/{{pageowner.id}}"><button class="btn btn-default" style = "width: 100px">{{addfriendtext}}</button></a>
+        {% endif%}
+      </div>
+      {% endif%}
+      <div class="home_profile">
+        <p class="profile_font" style="font-size: 30px;">{{pageowner.info.firstname}}&nbsp{{pageowner.info.lastname}}</p>
+        <p class="profile_font">LV. 5</p>
+        <p class="profile_font">{{pageowner.info.email}}</p>
+      </div>
+      <div class="row">
+          <div class="col-sm-12"><img src="../static/pictures/cover.gif" alt="cover" width="100%" class="img-rounded"></img></div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12"><hr style="width:100%"></div>
+      </div>
+
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs">
+        <li><a href="#organized" data-toggle="tab">Organized</a></li>
+        <li><a href="#Participated" data-toggle="tab">Participated</a></li>
+      </ul><!-- end tab ul-->
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div class="tab-pane fade in active" id="organized">
+          <div class="row">
+            <br>
+            <br>
+            {% for activity in organized reversed %}
+              <div class="col-sm-3" id="activity_1">
+                {% if activity.picture %}
+                <a style="color:#000000" href="{% url 'activitydetail' activity.id %}">
+                  <img src="{% url 'activityphoto' activity.id %}" alt="pic" class="img-thumbnail"></a>
+                {% endif %}
+                  <table class="table table-bordered">
+                  <tr>
+                    <td>
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <img src="/static/pictures/{{activity.activitytype}}small.png" alt="pic" width="100%"></img>
+                        </div>
+                        <div class="col-sm-9">
+                          <address class="pull-right">
+                            <a style="color:#000000" href="{% url 'activitydetail' activity.id %}">
+                              <strong>{{activity.name}}</strong></a><br>
+                            {{activity.address}}<br>
+                            {{activity.time}}
+                          </address>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            {% endfor %}
+      <!--      <div class="col-sm-3" id="activity_1">
+                <img src="../static/pictures/BBQAct.jpg" alt="pic" class="img-thumbnail">
+                <table class="table table-bordered">
+                <tr>
+                  <td>
+                    <div class="row">
+                      <div class="col-sm-3"><img src="../static/pictures/Dine.png" alt="pic" width="100%"></img></div>
+                      <div class="col-sm-9">
+                        <address class="pull-right">
+                          <strong>Twitter, Inc.</strong><br>
+                          795 Folsom Ave, CA<br>
+                          31.Oct.2013
+                        </address>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="col-sm-3" id="activity_1">
+                <img src="../static/pictures/golf.jpg" alt="pic" class="img-thumbnail">
+                <table class="table table-bordered">
+                <tr>
+                  <td>
+                    <div class="row">
+                      <div class="col-sm-3"><img src="../static/pictures/golf.png" alt="pic" width="100%"></img></div>
+                      <div class="col-sm-9">
+                        <address class="pull-right">
+                          <strong>Home</strong><br>
+                          1914 Murray Ave.<br>
+                          Pittsburgh, PA 15217<br>
+                          31.Oct.2013
+                        </address>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="col-sm-3" id="activity_1">
+                <img src="../static/pictures/campping.jpg" alt="pic" class="img-thumbnail">
+                <table class="table table-bordered">
+                <tr>
+                  <td>
+                    <div class="row">
+                      <div class="col-sm-3"><img src="../static/pictures/Camping.png" alt="pic" width="100%"></img></div>
+                      <div class="col-sm-9">
+                        <address class="pull-right">
+                          <strong>Twitter, Inc.</strong><br>
+                          795 Folsom Ave, Suite 600<br>
+                          San Francisco, CA 94107<br>
+                          31.Oct.2013
+                        </address>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="col-sm-3" id="activity_1">
+                <img src="../static/pictures/swim.jpg" alt="pic" width="100%" class="img-thumbnail">
+                <table class="table table-bordered">
+                <tr>
+                  <td>
+                    <div class="row">
+                      <div class="col-sm-3"><img src="../static/pictures/Pool.png" alt="pic" width="100%"></img></div>
+                      <div class="col-sm-9">
+                        <address class="pull-right">
+                          <strong>Twitter, Inc.</strong><br>
+                          795 Folsom Ave, Suite 600<br>
+                          San Francisco, CA 94107<br>
+                          31.Oct.2013
+                        </address>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="col-sm-3" id="activity_1">
+                <img src="../static/pictures/running.jpg" alt="pic" width="100%" class="img-thumbnail">
+                <table class="table table-bordered">
+                <tr>
+                  <td>
+                    <div class="row">
+                      <div class="col-sm-3"><img src="../static/pictures/running.png" alt="pic" width="100%"></img></div>
+                      <div class="col-sm-9">
+                        <address class="pull-right">
+                          <strong>Twitter, Inc.</strong><br>
+                          795 Folsom Ave, Suite 600<br>
+                          San Francisco, CA 94107<br>
+                          31.Oct.2013
+                        </address>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>     -->
+          </div><!--end div row -->
+        </div><!-- end of organzied-->
+
+        <div class="tab-pane fade" id="Participated">
+          {% for activity in participated reversed %}
+          <br>
+          <br>
+          <div class="col-sm-3" id="activity_1">
+              {% if activity.picture %}
+                <a style="color:#000000" href="{% url 'activitydetail' activity.id %}">
+                <img src="{% url 'activityphoto' activity.id %}" alt="pic" class="img-thumbnail"></a>
+              {% endif %}
+              <!--img src="{% url 'activityphoto' activity.id %}" alt="pic" class="img-thumbnail"-->
+              <table class="table table-bordered">
+              <tr>
+                <td>
+                  <div class="row">
+                    <div class="col-sm-3"><img src="/static/pictures/{{activity.activitytype}}small.png" alt="pic" width="100%"></img></div>
+                    <div class="col-sm-9">
+                      <address class="pull-right">
+                        <strong>{{activity.activitytype}}</strong><br>
+                        {{activity.address}}<br>
+                        {{activity.time}}
+                      </address>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          {% endfor %}
+        </div><!-- end participated-->
+      </div><!-- end of tab-content-->
+    </div><!-- /.container -->
+    {% endblock %}

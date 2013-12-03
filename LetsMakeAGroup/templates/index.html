@@ -1,0 +1,243 @@
+{% extends "basic.html" %}
+    {% block title %}
+    <title>Let's make a group!</title>
+    {% endblock %}
+
+    {% block additional_css %}
+    <link rel='stylesheet' type='text/css' href='/static/js/fullcalendar/fullcalendar/fullcalendar.css' />
+    {% endblock %}
+
+    {% block right_buttons_and_popups %}
+    <!-- right buttons -->
+    <div id="right buttons">
+      <!-- new activity -->
+      <div id="new_activity">
+        <img src="../static/pictures/new.png" class="new_activity_icon" height="50" width="50" data-toggle="modal" data-target="#new_activity_popup"></img>
+        <!-- Modal -->
+        <div class="modal fade" id="new_activity_popup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Organize Your Activity</h4>
+              </div>
+              <form id="new_activity_form" method="POST" class=".form-inline" action="{% url 'new_activity' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="modal-body">
+                    <div class="row">
+                      <div class="col-md-4">
+                        <p><tag>Name: </tag><font color="red" id="name_error" style="display:none">Name is required</font></p>
+                        <input type="text" class="form-control" name="name" placeholder="name of activity"></input>
+                      </div>
+                      <div class="col-md-8 ">
+                        <img src="../static/pictures/Dine.png" alt="Dining" style="cursor:pointer" class="activity_type_selection img-circle" id="img_Dine">
+                        <img src="../static/pictures/BBQ.png" alt="BBQ" style="cursor:pointer" class="activity_type_selection img-circle img-thumbnail" id="img_BBQ">
+                        <img src="../static/pictures/Camping.png" alt="Camping" style="cursor:pointer" class="activity_type_selection img-circle img-thumbnail" id="img_Camping">
+                        <img src="../static/pictures/fishing.png" alt="Fishing" style="cursor:pointer" class="activity_type_selection img-circle img-thumbnail" id="img_Fishing">
+                        <img src="../static/pictures/Golf.png" alt="Golf" style="cursor:pointer" class="activity_type_selection img-circle img-thumbnail" id="img_Golf">
+                        <img src="../static/pictures/Pool.png" alt="Pool" style="cursor:pointer" class="activity_type_selection img-circle img-thumbnail" id="img_Pool">
+                      </div>
+                      <div>
+                        <input type="radio" name="activity_type" value="Dine" id="radio_Dine" class="hidden" checked="checked"></input>
+                        <input type="radio" name="activity_type" value="BBQ" id="radio_BBQ" class="hidden"></input>
+                        <input type="radio" name="activity_type" value="Camping" id="radio_Camping" class="hidden"></input>
+                        <input type="radio" name="activity_type" value="Fishing" id="radio_Fishing" class="hidden"></input>
+                        <input type="radio" name="activity_type" value="Golf" id="radio_Golf" class="hidden"></input>
+                        <input type="radio" name="activity_type" value="Pool" id="radio_Pool" class="hidden"></input>
+                      </div>
+                    </div>
+                    <br>
+                    <p><input type="radio" name="privacy" value="0" checked="checked"> Public Activity&nbsp&nbsp<input type="radio" name="privacy" value="1"> Private Activity</p>
+                    <p><tag>Description: </tag></p>
+                    <textarea class="form-control" rows="3" name="description" placeholder="description..."></textarea>
+                    <p><tag>Address: </tag><font color="red" id="address_error" style="display:none">Address is required</font></p>
+                    <p>
+                    <div class="input-group">
+                      <span class="input-group-addon">Address1</span>
+                      <input type="text" class="form-control" name="address1"></input>
+                    </div>
+                  <div class="input-group">
+                    <span class="input-group-addon">Address2</span>
+                    <input type="text" class="form-control" name="address2"></input>
+                  </div>
+                  <div class="input-group">
+                    <span class="input-group-addon">City&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+                    <input type="text" class="form-control" name="city"></input>
+                  </div>
+                  </p>
+                  <font color="red" id="time_error" style="display:none">Time is required</font>
+                  <div class="row">
+                    <div class="col-md-10">
+                      <input name='date' type="date"/>
+                      <input name='time' type="time"/>
+                      <lable>@Friends: </lable>
+                      <select id="invited_friend_select" onchange="friend_selected()">
+                        <option value="-1">--------</option>
+                        {% for friend in user.get_friends %}
+                          <option value="{{friend.id}}/{{friend.info.firstname}} {{friend.info.lastname}}">{{friend.info.firstname}}&nbsp{{friend.info.lastname}}</option>
+                        {% endfor %}
+                      </select>
+                      </div>
+                      <div style="float:right" class="col-md-2">
+                        <input name="picture" type="file" id="upload_file_for_activity" class="hidden"></input>
+                        <img src="../static/pictures/picture.gif" alt="upload" style="cursor:pointer" class="img-rounded" id="upload_file">
+                      </div>
+                      </div>
+                      <div id="invited_friends" class="row">
+                          <!--{% for friend in user.get_friends %}
+                            <div class="col-md-3" name="current_invited">
+                              <input type="hidden" value="{{friend.id}}" name="invited_friend_{{forloop.counter}}">
+                              &radic;{{friend.info.firstname}}&nbsp{{friend.info.lastname}}
+                            </div>
+                          {% endfor %}-->
+                      </div>
+                    <br>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+      </div>
+      <!-- end new activity -->
+
+      <!-- map -->
+      <div name="map">
+        <!-- smallmap btn -->
+        <div id="smallmap" class="small_map_icon">
+           <img src="../static/pictures/Map-Icon.png" height="50" data-toggle="modal" onclick="map_popup()"></img>
+        </div>
+        <!-- end small map btn-->
+
+        <!-- Modal -->
+        <div class="modal fade" id="small_map_popup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" onload="resize()">
+          <div class="modal-dialog map_popup">
+            <div class="modal-content map_popup">
+              <div class="modal-body map_popup" id="map-canvas">
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        <!-- end smallmap -->
+      </div>
+      <!-- end map -->
+
+      <!-- unread message -->
+      <div name="unread_message">
+        <div id="unread_message" class="unread_message_icon" style="display:none">
+           <img src="../static/pictures/message.png" height="50" data-toggle="modal" data-target="#unread_message_popup"></img>
+        </div>
+
+        <div name="unread_message_audio">
+          <audio src="static/audio/new_msg.aif" id="new_message_audio" preload></audio>
+        </div>
+
+        <div class="modal fade" id="unread_message_popup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Unread Messages</h4>
+              </div>
+              <div class="modal-body">
+                <ul id="unread_list" style="list-style-type:none">
+                </ul>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+      </div>
+      <!-- end unread message -->
+
+      <!-- calender -->
+      <div name="calender">
+        <div class="calender_icon">
+           <!--img src="../static/pictures/Map-Icon.png" height="50" data-toggle="modal" onclick="map_popup()"></img-->
+           <img src="/static/ico/calendar.png" height="50" data-toggle="modal" onclick="calendar_popup()"></img>
+        </div>
+
+        <div class="modal fade" id="calender_popup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog calender_popup">
+            <div class="modal-content">
+              <div class="modal-body">
+                <div id='calendar'></div>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+      </div>
+      <!--end calender-->
+    </div>
+    <!-- end right buttons-->
+    {% endblock %}
+
+    {% block container %}
+    <!-- container -->
+    <div class="container">
+      <ul class="timeline">
+      {% for post in activities reversed %}
+          <li><div class="time">{{post.posttime}}</div>
+            <div class="pic"><a href="{%url 'personalhome' post.user.id%}"><img src="{%url 'infophoto' post.user.info.id%}" style="max-height:70px; max-width:70px;"></a></div>
+            <div class="version" style="font-size: 20px">{{post.user.info.firstname}} {{post.user.info.lastname}}</div>
+            <!--div class="behavior">Promotes Activity</div-->
+            <div class="number" style='background: url("/static/pictures/{{post.activitytype}}small.png") no-repeat scroll 0 0 transparent;'></div>
+            <div class="content">
+              <pre>
+<a style="color:#000000" href={% url 'activitydetail' post.id %}><div><span>{{post.activitytype}}&nbsp&nbsp</span><span style="font-size:25px">{{post.name}}</span></div></a><div>Location: {{post.address}}</div><div>Time: {{post.time}}</div>{%if post.picture%}
+<img src="{% url 'activityphoto' post.id %}" alt="Generic placeholder image" style="max-width:820px">{%endif%}
+              </pre>
+            <!-- follower and comment -->
+            <div>
+              <h4 class="panel-title">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"><font color=#4d4d4d>Followers</font></a>&nbsp&nbsp&nbsp
+                <a class="accordion-toggle panel-group" data-toggle="collapse" data-parent="#accordion" href="#collapsecomment{{post.id}}" ><font color=#4d4d4d>Comment</font></a>
+              </h4>
+
+              <!-- follower -->
+              <div>
+                <hr style="height:1px;border:none;background-color:#b0b0b0;">
+                {%for follower in post.getFollowers%}
+                <img src="{%url 'infophoto' follower.user.info.id%}" style="max-height:50px; max-width:50px;">
+                {%endfor%}
+                <a href="{%url 'join' post.id%}" ><img src="/static/pictures/join_icon1.jpg" style="max-height:50px;" ></a>
+              </div>
+              <!-- end follower -->
+
+              <!-- comments -->
+              <div id="collapsecomment{{post.id}}" class="panel-collapse collapse">
+                <hr style="height:1px;border:none;background-color:#b0b0b0;">
+                {% for comment in post.getComments %}
+                  <p><img src="{%url 'infophoto' comment.commenter.info.id%}" style="max-height:50px; max-width:50px;">&nbsp&nbsp&nbsp {{comment}}</p>
+                {% endfor %}
+                <form method="POST" action="{% url 'comment' post.id %}">
+                  {% csrf_token %}
+                  <input name = "comment" type="text" style = "width:700px;" placeholder="Write a comment…" class="form">&nbsp&nbsp
+                  <span><input class="btn btn-default" type="submit" value = "comment" name = "submit"></span>
+                  <input type = "hidden" name="id" value={{post.id}}>
+                </form>
+              </div>
+              <!-- end comments -->
+
+            </div>
+            <!-- end follwers and comments -->
+          </li>
+        {% endfor %}
+        <!--end activity for -->
+
+      <ul><!--end timeline-->
+    </div>
+    <!-- end container -->
+    {% endblock %}
+
+    {% block additional_javascript %}
+    <script type="text/javascript" src="/static/js/index/new_activity.js"></script>
+    <script type="text/javascript" src="/static/js/index/calender.js"></script>
+    <script type="text/javascript" src="/static/js/index/get_user_location.js"></script>
+    <script type="text/javascript" src="/static/js/index/unread_message.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFG3eiwhFK9PbaOkpRWPJMN-vVtdeQQio&sensor=true"></script>
+    <script type="text/javascript" src="/static/js/map/map.js"></script>
+    <script type='text/javascript' src='/static/js/fullcalendar/fullcalendar/fullcalendar.js'></script>
+    {% endblock %}
