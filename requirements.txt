@@ -1,0 +1,15 @@
+Django==1.5.2
+PIL==1.1.7
+mysql-connector-python==1.0.12
+gdata==2.0.18
+dj-database-url==0.2.2
+dj-static==0.0.5
+django-toolbelt==0.0.1
+gunicorn==18.0
+psycopg2==2.5.1
+s3cmd==1.5.0-alpha1
+static==0.4
+virtualenv==1.10.1
+wsgiref==0.1.2
+boto==2.2.1
+django-storages==1.1.4
