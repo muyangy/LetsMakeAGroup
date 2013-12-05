@@ -183,7 +183,7 @@
             <div class="pic"><a href="{%url 'personalhome' post.user.id%}"><img src="{%url 'infophoto' post.user.info.id%}" style="max-height:70px; max-width:70px;"></a></div>
             <div class="version" style="font-size: 20px">{{post.user.info.firstname}} {{post.user.info.lastname}}</div>
             <div class="behavior">Promotes Activity</div>
-            <div class="number" style='background: url("/static/pictures/{{post.activitytype}}small.png") no-repeat scroll 0 0 transparent;'></div>
+            <div class="number" style='background: url("../static/pictures/{{post.activitytype}}small.png") no-repeat scroll 0 0 transparent;'></div>
             <div class="content">
               <pre>
 <a style="color:#000000" href={% url 'activitydetail' post.id %}><div><span>{{post.activitytype}}&nbsp&nbsp</span><span style="font-size:25px">{{post.name}}</span></div></a><div>Location: {{post.address}}</div><div>Time: {{post.time}}</div>{%if post.picture%}
