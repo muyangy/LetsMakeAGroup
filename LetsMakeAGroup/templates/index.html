@@ -200,7 +200,7 @@
               <div>
                 <hr style="height:1px;border:none;background-color:#b0b0b0;">
                 {%for follower in post.getFollowers%}
-                <img src="{%url 'infophoto' follower.user.info.id%}" style="max-height:50px; max-width:50px;">
+                <a href = "{%url 'personalhome' follower.user.id%}"><img src="{%url 'infophoto' follower.user.info.id%}" style="max-height:50px; max-width:50px;"></a>
                 {%endfor%}
                 <a href="{%url 'join' post.id%}" ><img src="/static/pictures/join_icon2.png" style="max-height:50px;" ></a>
               </div>

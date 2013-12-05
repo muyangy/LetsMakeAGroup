@@ -9,7 +9,7 @@
       <div class="container">
         <!-- left post-frame -->
         <div class = "left post-frame">
-          <img src="{% url 'infophoto' activity.user.info.id %}" class="headimg"/>
+          <a href = "{%url 'personalhome' activity.user.id%}"><img src="{% url 'infophoto' activity.user.info.id %}" class="headimg"/></a>
           <p  class="fontname">{{activity.user.info.firstname}} {{activity.user.info.lastname}}</p><p style=" text-align:center">Activity Initiator</p><p style=" text-align:center">{{activity.posttime}}</p>
         </div>
         <!-- end left post-frame -->
@@ -26,7 +26,7 @@
           <p style="font-size: 15px;padding-top:30px">Followers:
             <span id="allfollowers">
           {%for follower in activity.getFollowers%}
-            <img src="{%url 'infophoto' follower.user.info.id%}" style="max-height:50px; max-width:50px"/>
+            <a href = "{%url 'personalhome' follower.user.id%}"><img src="{%url 'infophoto' follower.user.info.id%}" style="max-height:50px; max-width:50px"/></a>
             <!--  <img src="../static/pictures/Ying2.jpg" style="max-height:45px;max-width:45px;"/>-->
             {% if follower.user.id == user.id %}<span hidden id="markfollowerhidden">1</span>{%endif%}
           {%endfor%}
@@ -44,7 +44,7 @@
 
         {%for feedback in feedbacks%}
           <div class = "left post-frame">
-            <img src="{% url 'infophoto' feedback.user.info.id %}" class="headimg"/>
+            <a href = "{%url 'personalhome' feedback.user.id%}"><img src="{% url 'infophoto' feedback.user.info.id %}" class="headimg"/></a>
             <p  class="fontname">{{feedback.user.info.firstname}} {{feedback.user.info.lastname}}</p><p style=" text-align:center">Follower</p><p style=" text-align:center">{{feedback.time}}</p>
           </div>
 
