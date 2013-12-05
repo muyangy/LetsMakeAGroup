@@ -112,9 +112,8 @@ def activitydetail(request,id):
 @transaction.commit_on_success
 @login_required
 def addfeedback(request,id):
-    if not request.POST['text'] or not 'text' in request.POST:
-      if not 'picture' in request.FILES or request.FILES['picture']:
-          return redirect('/activitydetail/'+id)
+    if (not request.POST['text'] or not 'text' in request.POST) and (not 'picture' in request.FILES or request.FILES['picture']):
+        return redirect('/activitydetail/'+id)
     activity = Activity.objects.get(id=id)
     new_feedback = Feedback.objects.create(user=request.user, activity = activity)
     if request.POST['text'] and 'text' in request.POST:
