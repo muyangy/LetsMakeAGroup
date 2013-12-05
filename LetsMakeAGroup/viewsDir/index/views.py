@@ -91,7 +91,7 @@ def personalhome(request, id):
     otherpage = 1;
     friendsrequests = UnConfirmedFriend.objects.filter(requestuser = request.user).filter(confirmuser = pageowner)
 
-    if friendsrequests:
+    if (friendsrequests):
         addsent = "1"
     else:
         addsent = "0"
