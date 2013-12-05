@@ -6,6 +6,23 @@ $(window).load(function(){
   for (i = 0; i < length; i++) {
     AdjustColumnsHeight(allleft[i],allright[i]);
   }
+  $('#joinpic').click(function(){
+      var actid = $('#actidhidden').text();
+      var actuserid = $('#actuseridhidden').text();
+      var userid = $('#useridhidden').text();
+      var mark = $('#markhidden').text();
+      var lenth = $('#markcommentedhidden').length;
+      if(actuserid!=userid && mark =="0" && lenth === 0){
+        $.ajax({
+          type: "GET",
+          url: "/join/"+actid,
+          success: function(msg){
+            $('#markhidden').text("1");
+            $('#allfollowers').append("<img src='/infophoto/"+userid+"' style='max-height:50px; max-width:50px;'>");
+          }
+        });
+      }
+    });
   
 });
 

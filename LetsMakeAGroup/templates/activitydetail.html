@@ -28,6 +28,16 @@
             <img src="{%url 'infophoto' follower.user.info.id%}" style="max-height:45px;max-width:45px;"/>
             <!--  <img src="../static/pictures/Ying2.jpg" style="max-height:45px;max-width:45px;"/>-->
           {%endfor%}
+          </span>
+          <span hidden id="useridhidden">{{user.id}}</span>
+        <span hidden id="actidhidden">{{activity.id}}</span>
+        <span hidden id="actuseridhidden">{{activity.user.id}}</span>
+        <span hidden id="markhidden">0</span>
+        {% for comment in post.getComments %}
+            <p><img src="{%url 'infophoto' comment.commenter.info.id%}" style="max-height:50px; max-width:50px;">&nbsp&nbsp&nbsp {{comment}}</p>
+            {% if comment.commenter.id == user.id %}<span hidden id="markcommentedhidden">1</span>{%endif%}
+        {% endfor %}
+          &nbsp&nbsp<img id = "joinpic" src="/static/pictures/join_icon2.png" style="max-height:50px;" >
           </p>
         </div>
         <!-- end right post-frame -->
