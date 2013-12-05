@@ -26,7 +26,7 @@
           <p style="font-size: 15px;padding-top:30px">Followers:
             <span id="allfollowers">
           {%for follower in activity.getFollowers%}
-            <img src="{%url 'infophoto' follower.user.info.id%}" style="max-height:45px;max-width:45px;"/>
+            <img src="{%url 'infophoto' follower.user.info.id%}" style="max-height:50px; max-width:50px"/>
             <!--  <img src="../static/pictures/Ying2.jpg" style="max-height:45px;max-width:45px;"/>-->
             {% if follower.user.id == user.id %}<span hidden id="markfollowerhidden">1</span>{%endif%}
           {%endfor%}
