@@ -66,7 +66,7 @@ class Comment(models.Model):
 
 class Feedback(models.Model):
     activity = models.ForeignKey(Activity)
-    text = models.CharField(max_length=500)
+    text = models.CharField(max_length=500,blank=True)
     time = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User)
     picture = models.ImageField(upload_to="feedback-photos",blank=True)

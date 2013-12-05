@@ -113,10 +113,13 @@ def activitydetail(request,id):
 @login_required
 def addfeedback(request,id):
     if not request.POST['text'] or not 'text' in request.POST:
-      return redirect('/activitydetail/'+id)
-    text = request.POST['text']
+      if not 'picture' in request.FILES or request.FILES['picture']:
+          return redirect('/activitydetail/'+id)
     activity = Activity.objects.get(id=id)
-    new_feedback = Feedback.objects.create(user=request.user, text = text, activity = activity)
+    new_feedback = Feedback.objects.create(user=request.user, activity = activity)
+    if request.POST['text'] and 'text' in request.POST:
+        text = request.POST['text']
+        new_feedback.text = text
     if 'picture' in request.FILES and request.FILES['picture']:
         new_feedback.picture = request.FILES['picture']
     new_feedback.save();
