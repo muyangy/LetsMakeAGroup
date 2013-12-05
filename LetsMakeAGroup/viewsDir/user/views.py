@@ -91,8 +91,12 @@ def reset_password(request):
 @login_required
 def allUser(request):
     context = {}
+<<<<<<< HEAD
     activity_users = User.objects.filter(is_active = True)
     people = Info.objects.filter(user__in = activity_users)
+=======
+    people = Info.objects.all()
+>>>>>>> 6fda1ba33ea13e548615b71623b4cc71c33b1e44
     unconfirmed = [];
     context['peoples'] = people
 

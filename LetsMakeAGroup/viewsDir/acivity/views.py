@@ -112,9 +112,7 @@ def activitydetail(request,id):
 @transaction.commit_on_success
 @login_required
 def addfeedback(request,id):
-    print("1")
     if (not request.POST['text'] or not 'text' in request.POST) and (not 'picture' in request.FILES or not request.FILES['picture']):
-        print("2")
         return redirect('/activitydetail/'+id)
     activity = Activity.objects.get(id=id)
     new_feedback = Feedback.objects.create(user=request.user, activity = activity)
@@ -139,7 +137,9 @@ def get_unread_messages(request):
   uncomfirmedfriends = []
   for unread_activity in UnreadActivityInvitation.objects.filter(user=request.user):
     activity = Activity.objects.get(id=unread_activity.activityID)
-    activities.append((activity.id, activity.name))
+    activity_dic = {}
+    activity_dic[unread_activity.activityID] = activity.name
+    activities.append(activity_dic)
 
   userself = UserFollowers.objects.get(user = request.user)
   allfriends = UnConfirmedFriend.objects.filter(confirmuser = userself)

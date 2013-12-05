@@ -51,7 +51,7 @@
           <div class = "right post-frame">
             <p style="padding-top:10px"> {{feedback.text}}
               {%if feedback.picture%}
-                  <img src="{% url 'feedbackphoto' feedback.id %}" 
+                  <img src="{% url 'feedbackphoto' feedback.id %}"
                        style="padding-top:20px;padding-bottom:10px; display: block;margin: 0 auto;max-width:700px;"></img>
               {%endif%}
             </p>
@@ -87,7 +87,6 @@
       {% endblock %}
 
     {% block additional_javascript %}
-    <script src="../static/assets/js/group.js"></script>
-    <script src="../static/assets/js/actdetail.js"></script>
-    <script src="../static/js/activitydetail.js">
+    <script src="../static/js/group.js"></script>
+    <script src="../static/js/actdetail.js"></script>
     {% endblock %}

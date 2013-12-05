@@ -23,7 +23,6 @@ class Activity(models.Model):
         return Comment.objects.filter(activity = self)
 
 #Followers of an activity
-class Followers(models.Model):
     activity = models.ForeignKey(Activity)
     user = models.ForeignKey(User)
 
@@ -68,7 +67,11 @@ class Comment(models.Model):
 
 class Feedback(models.Model):
     activity = models.ForeignKey(Activity)
+<<<<<<< HEAD
     text = models.CharField(max_length=500)
+=======
+    text = models.CharField(max_length=500,blank=True)
+>>>>>>> 6fda1ba33ea13e548615b71623b4cc71c33b1e44
     time = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User)
     picture = models.ImageField(upload_to="feedback-photos",blank=True)
