@@ -12,6 +12,7 @@ $(window).load(function(){
       var userid = $('#useridhidden').text();
       var mark = $('#markhidden').text();
       var text = $('#markfollowerhidden').text();
+      alert("getin");
       if(actuserid!=userid && mark =="0" && !text){
         $.ajax({
           type: "GET",
