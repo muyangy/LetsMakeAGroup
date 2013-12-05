@@ -73,7 +73,7 @@ def join(request, id):
 @login_required
 @transaction.commit_on_success
 def personalhome(request, id):
-    pageowner = User.objects.get(id=id)
+    '''   pageowner = User.objects.get(id=id)
     organized = []
     activities = Activity.objects.filter(user=pageowner)
     for activity in activities:
@@ -100,8 +100,8 @@ def personalhome(request, id):
         addfriendtext = "Add Friend"
     else:
         addfriendtext = "Unfriend"
-    context = {"pageowner":pageowner, "addfriendtext": addfriendtext, "otherpage": otherpage, "organized":organized, "participated":participated, "addsent": addsent}
-    return render(request, 'home.html', context)
+    context = {"pageowner":pageowner, "addfriendtext": addfriendtext, "otherpage": otherpage, "organized":organized, "participated":participated, "addsent": addsent}'''
+    return render(request, 'home.html')
 
 @login_required
 @transaction.commit_on_success
