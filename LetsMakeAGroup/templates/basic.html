@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta charset="utf-8" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <!-- Note there is no responsive meta tag here -->
+
+    <link rel="shortcut icon" href="/static/ico/favicon.png">
+
+    {% block title %}
+    {% endblock %}
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.css" rel="stylesheet">
+
+
+
+    <!-- Custom styles for this template -->
+    <link href="/static/css/non-responsive.css" rel="stylesheet">
+    <link href="/static/css/group.css" rel="stylesheet">
+
+    {% block additional_css %}
+    {% endblock %}
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!--[if lt IE 9]>
+        <script src="../static/pictures/../../static/assets/js/html5shiv.js"></script>
+        <script src="../static/pictures/../../static/assets/js/respond.min.js"></script>
+        <![endif]-->
+  </head>
+
+  <body>
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Let's make a group!</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="{% url 'personalhome' user.id %}">Home</a></li>
+            <li><a href="{% url 'people' %}">People</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <form class="navbar-form navbar-left" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+              </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+            <li><a href="{% url 'reset_password' %}">Reset Password</a></li>
+            <li><a href="{% url 'signout' %}">Sign out</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    <!--end Navi bar-->
+
+    {% block right_buttons_and_popups %}
+    {% endblock %}
+
+    {% block container %}
+    {% endblock %}
+
+    <!-- footer -->
+    <footer class="footer">
+      <hr style="height:1px;border:none;background-color:#b8b8b8; margin-left: 50px; margin-right: 50px;">
+      <div class="container">
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; Muyang Yu, Fangxiaoyu Feng 2013 </p>
+      </div>
+    </footer>
+    <!-- end footer -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="/static/js/jquery.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+    {% block additional_javascript %}
+    {% endblock %}
+  </body>
+</html>
