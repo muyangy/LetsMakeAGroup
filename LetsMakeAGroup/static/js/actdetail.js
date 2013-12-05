@@ -6,7 +6,8 @@ $(window).load(function(){
   for (i = 0; i < length; i++) {
     AdjustColumnsHeight(allleft[i],allright[i]);
   }
-  $('#joinpic').click(function(){
+  $('#joinpic').click(function(event){
+      event.preventDefault();
       var actid = $('#actidhidden').text();
       var actuserid = $('#actuseridhidden').text();
       var userid = $('#useridhidden').text();
