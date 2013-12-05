@@ -121,10 +121,7 @@ $(document).ready(function() {
             url: "getActivitiesAddress",
             success: function(msg){
                 addresses = JSON.parse(msg);
-            },//end success
-            error: function(xhr, textStatus, errorThrown) {
-                alert("reload error: "+errorThrown+xhr.status+xhr.responseText);
-            }//end error
+            }
         });//end of $.ajax
     }
 
@@ -134,10 +131,7 @@ $(document).ready(function() {
             url: "getActivityIntroduction",
             success: function(msg){
                 markcontents = JSON.parse(msg);
-            },//end success
-            error: function(xhr, textStatus, errorThrown) {
-                alert("reload error: "+errorThrown+xhr.status+xhr.responseText);
-            }//end error
+            }
         });//end of $.ajax
     }
 

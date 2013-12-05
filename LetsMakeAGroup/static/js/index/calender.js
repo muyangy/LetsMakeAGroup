@@ -32,10 +32,7 @@ $(document).ready(function() {
                         });
                     }
                     callback(events);
-                },//end success
-                error: function(xhr, textStatus, errorThrown) {
-                    alert("reload error: "+errorThrown+xhr.status+xhr.responseText);
-                }//end error
+                }
              });//end of $.ajax
         }//end of events function
     });

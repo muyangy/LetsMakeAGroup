@@ -25,6 +25,21 @@ def index(request):
     context = {"activities":activities};
     return render(request, 'index.html', context)
 
+@login_required
+def search(request):
+    context = {}
+    activities = []
+    if 'search_query' in request.GET and request.GET['search_query']:
+        activities = Activity.objects.filter(name__contains = request.GET['search_query'])
+
+    for activity in activities:
+       if activity.privacy==1 :
+            posterfriends = activity.user.get_friends();
+            if request.user not in posterfriends and request.user != activity.user:
+               thisid = activity.id
+               activities = activities.exclude(id = thisid)
+    context = {"activities":activities}
+    return render(request, 'index.html', context)
 
 @login_required
 @transaction.commit_on_success

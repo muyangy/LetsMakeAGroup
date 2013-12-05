@@ -37,4 +37,5 @@ urlpatterns = patterns('',
     url(r'^get_events$', 'LetsMakeAGroup.viewsDir.acivity.views.get_events'),
     url(r'^update_user_location$', 'LetsMakeAGroup.viewsDir.user.views.update_user_location'),
     url(r'^ignore_activity/(?P<id>\d+)$', 'LetsMakeAGroup.viewsDir.acivity.views.ignore_activity'),
+    url(r'^search', 'LetsMakeAGroup.viewsDir.index.views.search', name='search'),
 )
