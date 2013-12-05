@@ -1,6 +1,6 @@
 ul.timeline {
   list-style-type: none;
-  background: url("/static/ico/square.png") repeat-y scroll 30px 0 transparent;
+  background: url("../ico/square.png") repeat-y scroll 30px 0 transparent;
   margin: 50px 0;
   padding: 0;
 }
@@ -51,7 +51,7 @@ ul.timeline li .behavior {
 }
 ul.timeline li .number {
   position: absolute;
-  background: url("/static/ico/bbq.png") no-repeat scroll 0 0 transparent;
+  background: url("../ico/bbq.png") no-repeat scroll 0 0 transparent;
   width: 56px;
   height: 56px;
   left:12px;
@@ -61,7 +61,7 @@ ul.timeline li .number {
   font-size: 18px;
 }
 ul.timeline li.alt .number {
-  background-image: url("/static/ico/bbq.png");
+  background-image: url("../ico/bbq.png");
 }
 ul.timeline li .content {
   margin-left: 80px;
