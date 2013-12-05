@@ -6,14 +6,13 @@ $(window).load(function(){
   for (i = 0; i < length; i++) {
     AdjustColumnsHeight(allleft[i],allright[i]);
   }
-  $('#joinpic').click(function(event){
-      event.preventDefault();
+    $('#joinpic').click(function(event){
       var actid = $('#actidhidden').text();
       var actuserid = $('#actuseridhidden').text();
       var userid = $('#useridhidden').text();
       var mark = $('#markhidden').text();
-      var lenth = $('#markcommentedhidden').length;
-      if(actuserid!=userid && mark =="0" && lenth === 0){
+      var text = $('#markfollowerhidden').text();
+      if(actuserid!=userid && mark =="0" && !text){
         $.ajax({
           type: "GET",
           url: "/join/"+actid,
