@@ -22,10 +22,12 @@ class Activity(models.Model):
     def getComments(self):
         return Comment.objects.filter(activity = self)
 
+#Followers of an activity
 class Followers(models.Model):
     activity = models.ForeignKey(Activity)
     user = models.ForeignKey(User)
 
+#friend model that need to be confirmed
 class UserFollowers(models.Model):
     user = models.ForeignKey(User, related_name='user')
     friends = models.ManyToManyField(User, related_name='user_friends')

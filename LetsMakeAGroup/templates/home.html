@@ -170,10 +170,11 @@
           </div><!--end div row -->
         </div><!-- end of organzied-->
 
+        <!--participated-->
         <div class="tab-pane fade" id="Participated">
+          <br>
+          <br>
           {% for activity in participated reversed %}
-          <br>
-          <br>
           <div class="col-sm-3" id="activity_1">
               {% if activity.picture %}
                 <a style="color:#000000" href="{% url 'activitydetail' activity.id %}">

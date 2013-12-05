@@ -9,13 +9,13 @@
       <div class="container">
         <!-- left post-frame -->
         <div class = "left post-frame">
-          <img src="{% url 'infophoto' activity.user.info.id %}" class="headimg"/>
+          <a href = "{%url 'personalhome' activity.user.id%}"><img src="{% url 'infophoto' activity.user.info.id %}" class="headimg"/></a>
           <p  class="fontname">{{activity.user.info.firstname}} {{activity.user.info.lastname}}</p><p style=" text-align:center">Activity Initiator</p><p style=" text-align:center">{{activity.posttime}}</p>
         </div>
         <!-- end left post-frame -->
 
         <!-- right post-frame -->
-        <div class = "right post-frame">
+        <div class = "right post-frame" id = "followers">
           <p style="font-size: 25px; padding:20px; text-align:center;" ><img src="/static/pictures/{{activity.activitytype}}.png") style="max-height:45px;max-width:45px;">&nbsp&nbsp&nbsp{{activity.name}}</p>
           <p style="font-size: 15px;">Time: {{activity.time}}</p>
           <p style="font-size: 15px;">Location: {{activity.address}}</p>
@@ -24,10 +24,18 @@
             <div><img src="{% url 'activityphoto' activity.id %}" style="padding-top:20px;padding-bottom:10px; display: block;margin: 0 auto;max-width:700px;"/></div>
           {%endif%}
           <p style="font-size: 15px;padding-top:30px">Followers:
+            <span id="allfollowers">
           {%for follower in activity.getFollowers%}
-            <img src="{%url 'infophoto' follower.user.info.id%}" style="max-height:45px;max-width:45px;"/>
+            <a href = "{%url 'personalhome' follower.user.id%}"><img src="{%url 'infophoto' follower.user.info.id%}" style="max-height:50px; max-width:50px"/></a>
             <!--  <img src="../static/pictures/Ying2.jpg" style="max-height:45px;max-width:45px;"/>-->
+            {% if follower.user.id == user.id %}<span hidden id="markfollowerhidden">1</span>{%endif%}
           {%endfor%}
+        </span>
+        <span hidden id="useridhidden">{{user.id}}</span>
+        <span hidden id="actidhidden">{{activity.id}}</span>
+        <span hidden id="actuseridhidden">{{activity.user.id}}</span>
+        <span hidden id="markhidden">0</span>
+          &nbsp&nbsp<img id = "joinpic" src="/static/pictures/join_icon2.png" style="cursor:pointer; max-height:50px;" >
           </p>
         </div>
         <!-- end right post-frame -->
@@ -36,7 +44,7 @@
 
         {%for feedback in feedbacks%}
           <div class = "left post-frame">
-            <img src="{% url 'infophoto' feedback.user.info.id %}" class="headimg"/>
+            <a href = "{%url 'personalhome' feedback.user.id%}"><img src="{% url 'infophoto' feedback.user.info.id %}" class="headimg"/></a>
             <p  class="fontname">{{feedback.user.info.firstname}} {{feedback.user.info.lastname}}</p><p style=" text-align:center">Follower</p><p style=" text-align:center">{{feedback.time}}</p>
           </div>
 
@@ -81,4 +89,5 @@
     {% block additional_javascript %}
     <script src="../static/assets/js/group.js"></script>
     <script src="../static/assets/js/actdetail.js"></script>
+    <script src="../static/js/activitydetail.js">
     {% endblock %}

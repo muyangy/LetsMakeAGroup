@@ -25,7 +25,7 @@ $(document).ready(function() {
             var i;
             for(i=0; i<activities.length; i++) {
               activity = activities[i];
-              activityID = Object.keys(activity)[0];
+              activityID = activity[0];
               var old_activity = $("li[activityID='" + activityID + "']")[0];
               if(old_activity){//if this activity is already there
                 continue;
@@ -72,15 +72,12 @@ $(document).ready(function() {
               }
             }
         },//end success
-        error: function(xhr, textStatus, errorThrown) {
-            alert("reload error: "+errorThrown+xhr.status+xhr.responseText);
-        }//end error
     });//end of $.ajax
   }//end of get_unread_message()
 
   function activity_to_html(activity) {
-    activityID = Object.keys(activity)[0];
-    activityName = activity[activityID];
+    activityID = activity[0];
+    activityName = activity[1];
     var innerHTML = "<button type='button' class='close' style='float:left' activityID='" + activityID + "' onClick='deleteItem(this)'>&times; &nbsp;</button>You are invited to Join: <a href='activitydetail/" + activityID + "' activityID='" + activityID + "' onClick='deleteItem(this)'>" + activityName + "</a>";
     return innerHTML;
   }
@@ -109,6 +106,10 @@ $(document).ready(function() {
         type: "GET",
         url: "delete_unread_activity/" + ID,
     });//end of $.ajax
+    $.ajax({
+        type: "GET",
+        url: "ignore_activity/" + ID,
+    });
     invoker.parentElement.remove();//remove a whole <li>
   };//end of deleteItem
   confirmfriend = function(invoker) {

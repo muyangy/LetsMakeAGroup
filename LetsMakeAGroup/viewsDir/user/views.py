@@ -91,7 +91,8 @@ def reset_password(request):
 @login_required
 def allUser(request):
     context = {}
-    people = Info.objects.all()
+    activity_users = User.objects.filter(is_active = True)
+    people = Info.objects.filter(user__in = activity_users)
     unconfirmed = [];
     context['peoples'] = people
 
@@ -144,7 +145,6 @@ def update_user_location(request):
         return HttpResponse(1)
 
     if UserLocation.objects.filter(user = request.user):
-
         userLocation = UserLocation.objects.get(user = request.user)
         userLocation.lat = request.GET['lat']
         userLocation.lng = request.GET['lng']

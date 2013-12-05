@@ -55,7 +55,6 @@ def post_activity(request):
     i=1;
     invited_friend_i = "invited_friend_" + str(i)
     while invited_friend_i in request.POST and request.POST[invited_friend_i]:
-      print request.POST[invited_friend_i]
       invited_user = User.objects.get(id=request.POST[invited_friend_i])
       UnreadActivityInvitation.objects.create(user=invited_user, activityID=new_activity.id).save()
       i+=1
@@ -113,16 +112,19 @@ def activitydetail(request,id):
 @transaction.commit_on_success
 @login_required
 def addfeedback(request,id):
-    if not request.POST['text'] or not 'text' in request.POST:
-      return redirect('/activitydetail/'+id)
-    text = request.POST['text']
+    print("1")
+    if (not request.POST['text'] or not 'text' in request.POST) and (not 'picture' in request.FILES or not request.FILES['picture']):
+        print("2")
+        return redirect('/activitydetail/'+id)
     activity = Activity.objects.get(id=id)
-    new_feedback = Feedback.objects.create(user=request.user, text = text, activity = activity)
+    new_feedback = Feedback.objects.create(user=request.user, activity = activity)
+    if request.POST['text'] and 'text' in request.POST:
+        text = request.POST['text']
+        new_feedback.text = text
     if 'picture' in request.FILES and request.FILES['picture']:
         new_feedback.picture = request.FILES['picture']
     new_feedback.save();
     return redirect('/activitydetail/'+id)
-
 
 @login_required
 def get_unread_messages(request):
@@ -137,9 +139,7 @@ def get_unread_messages(request):
   uncomfirmedfriends = []
   for unread_activity in UnreadActivityInvitation.objects.filter(user=request.user):
     activity = Activity.objects.get(id=unread_activity.activityID)
-    activity_dic = {}
-    activity_dic[unread_activity.activityID] = activity.name
-    activities.append(activity_dic)
+    activities.append((activity.id, activity.name))
 
   userself = UserFollowers.objects.get(user = request.user)
   allfriends = UnConfirmedFriend.objects.filter(confirmuser = userself)

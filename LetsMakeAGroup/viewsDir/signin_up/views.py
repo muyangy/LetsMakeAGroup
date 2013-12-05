@@ -81,12 +81,12 @@ verify your email address and complete the registration of your account:
     server.sendmail(fromaddr, toaddrs, message.as_string())
     server.quit()
 
-    '''
+
     send_mail(subject="Verify your email address",
               message= email_body,
               from_email="fangxiaf@andrew.cmu.edu",
               recipient_list=[new_user.email])
-    '''
+
     context['email'] = form.cleaned_data['username']
     return render(request, 'needs-confirmation.html', context)
 
