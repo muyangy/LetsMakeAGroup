@@ -23,6 +23,7 @@ class Activity(models.Model):
         return Comment.objects.filter(activity = self)
 
 #Followers of an activity
+class Followers(models.Model):
     activity = models.ForeignKey(Activity)
     user = models.ForeignKey(User)
 
