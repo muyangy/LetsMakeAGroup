@@ -85,7 +85,7 @@ def personalhome(request, id):
     for follower in followers:
         if follower.activity.privacy==0 or follower.activity.user==request.user:
             participated.append(follower.activity)
-    if(request.user == pageowner):
+    if request.user == pageowner:
         context = {"pageowner":pageowner, "organized":organized, "participated":participated }
         return render(request, 'home.html', context)
     otherpage = 1;
