@@ -91,10 +91,11 @@ def personalhome(request, id):
     otherpage = 1;
     friendsrequests = UnConfirmedFriend.objects.filter(requestuser = request.user).filter(confirmuser = pageowner)
 
-    if (friendsrequests):
-        addsent = "1"
-    else:
-        addsent = "0"
+    addsent = "1"
+    #if friendsrequests:
+    #    addsent = "1"
+    #else:
+    #    addsent = "0"
     if pageowner not in request.user.get_friends():
         addfriendtext = "Add Friend"
     else:
