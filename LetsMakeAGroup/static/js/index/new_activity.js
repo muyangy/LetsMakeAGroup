@@ -33,10 +33,10 @@ $(document).ready(function() {
         $("#img_Fishing")[0].setAttribute("class", "activity_type_selection img-circle");
     });
 
-    $("#img_Golf").click(function () {
-        $("#radio_Golf").trigger('click');
+    $("#img_Other").click(function () {
+        $("#radio_Other").trigger('click');
         clear_select();
-        $("#img_Golf")[0].setAttribute("class", "activity_type_selection img-circle");
+        $("#img_Other")[0].setAttribute("class", "activity_type_selection img-circle");
     });
 
     $("#img_Pool").click(function () {
