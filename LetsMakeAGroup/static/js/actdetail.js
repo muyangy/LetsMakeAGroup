@@ -19,12 +19,12 @@ $(window).load(function(){
           url: "/join/"+actid,
           success: function(msg){
             $('#markhidden').text("1");
-            $('#allfollowers').append("<img src='/personalhome/"+userid+"' style='max-height:50px; max-width:50px;'>");
+            $('#allfollowers').append("<img src='/infophoto/"+userid+"' style='max-height:50px; max-width:50px;'>");
           }
         });
       }
     });
-  
+
 });
 
 function AdjustColumnsHeight(obj1,obj2){
