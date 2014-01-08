@@ -48,7 +48,3 @@ nosetests.xml
 # Mr Developer
 .mr.developer.cfg
 
-# Deploy to Hero
-settings.py
-wsgi.py
-settings.py

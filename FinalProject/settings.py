@@ -141,6 +141,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'LetsMakeAGroup',
+    'storages',
 )
 
 LOGIN_URL = '/signin.html'
