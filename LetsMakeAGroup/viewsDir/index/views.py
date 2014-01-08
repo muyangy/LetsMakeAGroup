@@ -64,7 +64,10 @@ def get_infophoto(request, id):
 @login_required
 @transaction.commit_on_success
 def join(request, id):
-    activity = Activity.objects.get(id=id)
+    try:
+        activity = Activity.objects.get(id=id)
+    except:
+        return render(request,"pagenotfound.html")
     if(request.user == activity.user):
       return redirect("/")
     oldfollower = Followers.objects.filter(user=request.user,activity = activity)
@@ -76,7 +79,10 @@ def join(request, id):
 @login_required
 @transaction.commit_on_success
 def personalhome(request, id):
-    pageowner = User.objects.get(id=id)
+    try:
+        pageowner = User.objects.get(id=id)
+    except:
+        return render(request,"pagenotfound.html")
     organized = []
     activities = Activity.objects.filter(user=pageowner)
     for activity in activities:

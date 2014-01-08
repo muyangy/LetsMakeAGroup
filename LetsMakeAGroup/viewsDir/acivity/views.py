@@ -103,7 +103,10 @@ def get_feedbackphoto(request, id):
 @transaction.commit_on_success
 @login_required
 def activitydetail(request,id):
-  activity = Activity.objects.get(id = id);
+  try:
+        activity = Activity.objects.get(id=id)
+  except:
+        return render(request,"pagenotfound.html")
   feedbacks = Feedback.objects.filter(activity__id = id);
   context = {"activity":activity, "feedbacks": feedbacks, "user":request.user};
   return render(request, 'activitydetail.html', context)
@@ -114,7 +117,10 @@ def activitydetail(request,id):
 def addfeedback(request,id):
     if (not request.POST['text'] or not 'text' in request.POST) and (not 'picture' in request.FILES or not request.FILES['picture']):
         return redirect('/activitydetail/'+id)
-    activity = Activity.objects.get(id=id)
+    try:
+        activity = Activity.objects.get(id=id)
+    except:
+        return render(request,"pagenotfound.html")
     new_feedback = Feedback.objects.create(user=request.user, activity = activity)
     if request.POST['text'] and 'text' in request.POST:
         text = request.POST['text']
@@ -195,7 +201,10 @@ def getdistance(lat1,lng1,lat2,lng2):
 @transaction.commit_on_success
 @login_required
 def delete_unread_activity(request, id):
-  activity = UnreadActivityInvitation.objects.get(user=request.user, activityID=id)
+  try:
+      activity = UnreadActivityInvitation.objects.get(user=request.user, activityID=id)
+  except:
+      return render(request,"pagenotfound.html")
   if activity:
     activity.delete()
   return HttpResponse()

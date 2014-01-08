@@ -13,7 +13,10 @@ import json
 @login_required
 @transaction.commit_on_success
 def follow(request, id):
-    newfriend = User.objects.get(id=id)
+    try:
+      newfriend = User.objects.get(id=id)
+    except:
+      return render(request,"pagenotfound.html")
     user = request.user
     relationself = UserFollowers.objects.get(user = user)
     relationfriend = UserFollowers.objects.get(user = newfriend)
@@ -31,7 +34,10 @@ def follow(request, id):
 @login_required
 @transaction.commit_on_success
 def confirmfriendrequest(request, id):
-    unconfirmed = UnConfirmedFriend.objects.get(id=id)
+    try:
+        unconfirmed = UnConfirmedFriend.objects.get(id=id)
+    except:
+        return render(request,"pagenotfound.html")
     confirmuser = unconfirmed.confirmuser
     requestuser = unconfirmed.requestuser
     confirmuserrelation = UserFollowers.objects.get(user = confirmuser)
@@ -44,7 +50,10 @@ def confirmfriendrequest(request, id):
 @login_required
 @transaction.commit_on_success
 def refusefriend(request, id):
-    unconfirmed = UnConfirmedFriend.objects.get(id=id)
+    try:
+        unconfirmed = UnConfirmedFriend.objects.get(id=id)
+    except:
+        return render(request,"pagenotfound.html")
     unconfirmed.delete()
     return HttpResponse()
 
