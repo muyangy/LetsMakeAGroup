@@ -141,7 +141,6 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'LetsMakeAGroup',
-    'storages',
 )
 
 LOGIN_URL = '/signin.html'
@@ -180,33 +179,3 @@ LOGGING = {
         },
     }
 }
-
-
-# Parse database configuration from $DATABASE_URL
-import dj_database_url
-
-DATABASES['default'] =  dj_database_url.config()
-
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-ALLOWED_HOSTS = ['*']
-
-import os
-
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
-STATIC_ROOT = 'staticfiles'
-
-STATIC_URL = '/static/'
-
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
-
-#----------S3 settings--------------#
-AWS_ACCESS_KEY_ID = 'AKIAJ4UKE27S27P2YVQQ'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'IqL20pXR03AAFhmqlB4S94ldQV5CGrADso5KjOLv'
-
-STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-AWS_STORAGE_BUCKET_NAME = 'letsmakeagroup'
-#----------S3 settings--------------#

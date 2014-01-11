@@ -48,3 +48,6 @@ nosetests.xml
 # Mr Developer
 .mr.developer.cfg
 
+# Heroku
+settings.py
+wsgi.py
