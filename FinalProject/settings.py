@@ -145,6 +145,10 @@ INSTALLED_APPS = (
     'storages',
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+   'django.core.context_processors.static',
+)
+
 LOGIN_URL = '/signin.html'
 
 LOGIN_REDIRECT_URL = '/'
@@ -186,7 +190,8 @@ LOGGING = {
 #deploy on heroku
 if not DEBUG:
     #----------S3 settings--------------#
-    AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
+    #AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
+    AWS_STORAGE_BUCKET_NAME = "letsmakeagroup"
     S3_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
     AWS_ACCESS_KEY_ID = 'AKIAJ4UKE27S27P2YVQQ'
     AWS_SECRET_ACCESS_KEY = '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'
