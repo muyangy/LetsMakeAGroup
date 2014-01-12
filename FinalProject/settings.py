@@ -1,5 +1,6 @@
 import os
 import dj_database_url
+from django.conf import global_settings
 # Django settings for FinalProject project.
 
 PROJECT_ROOT = os.path.realpath(os.path.dirname(__file__)) + '/'
@@ -145,9 +146,9 @@ INSTALLED_APPS = (
     'storages',
 )
 
-#TEMPLATE_CONTEXT_PROCESSORS = (
-#   'django.core.context_processors.static',
-#)
+TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
+   'django.core.context_processors.static',
+)
 
 LOGIN_URL = '/signin.html'
 

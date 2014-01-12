@@ -23,10 +23,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="settings.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="settings.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/FinalProject/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="156" column="16" selection-start="5530" selection-end="5530" vertical-scroll-proportion="0.0" vertical-offset="1939" max-vertical-offset="3315">
+            <state line="149" column="43" selection-start="5470" selection-end="5470" vertical-scroll-proportion="0.516129" vertical-offset="1947" max-vertical-offset="3330">
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -74,10 +74,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="basic.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="basic.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LetsMakeAGroup/templates/basic.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="54" selection-start="1637" selection-end="1637" vertical-scroll-proportion="0.16853933" vertical-offset="630" max-vertical-offset="1455">
+            <state line="48" column="54" selection-start="1637" selection-end="1637" vertical-scroll-proportion="-3.75" vertical-offset="630" max-vertical-offset="1455">
               <folding />
             </state>
           </provider>
@@ -127,8 +127,8 @@
         <option value="$PROJECT_DIR$/LetsMakeAGroup/FinalProject/settings.py" />
         <option value="$PROJECT_DIR$/LetsMakeAGroup/viewsDir/index/views.py" />
         <option value="$PROJECT_DIR$/LetsMakeAGroup/templates/index.html" />
-        <option value="$PROJECT_DIR$/FinalProject/settings.py" />
         <option value="$PROJECT_DIR$/LetsMakeAGroup/templates/basic.html" />
+        <option value="$PROJECT_DIR$/FinalProject/settings.py" />
       </list>
     </option>
   </component>
@@ -522,19 +522,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FinalProject/settings.py">
+    <entry file="file://$PROJECT_DIR$/LetsMakeAGroup/templates/basic.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="156" column="16" selection-start="5530" selection-end="5530" vertical-scroll-proportion="0.0" vertical-offset="1939" max-vertical-offset="3315">
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
+        <state line="48" column="54" selection-start="1637" selection-end="1637" vertical-scroll-proportion="-3.75" vertical-offset="630" max-vertical-offset="1455">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LetsMakeAGroup/templates/basic.html">
+    <entry file="file://$PROJECT_DIR$/FinalProject/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="54" selection-start="1637" selection-end="1637" vertical-scroll-proportion="0.16853933" vertical-offset="630" max-vertical-offset="1455">
-          <folding />
+        <state line="149" column="43" selection-start="5470" selection-end="5470" vertical-scroll-proportion="0.516129" vertical-offset="1947" max-vertical-offset="3330">
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
