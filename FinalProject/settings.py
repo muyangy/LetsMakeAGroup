@@ -183,32 +183,32 @@ LOGGING = {
 
 
 #deploy on heroku
-if not DEBUG:
-    # Parse database configuration from $DATABASE_URL
-    import dj_database_url
+#if not DEBUG:
+# Parse database configuration from $DATABASE_URL
+import dj_database_url
 
-    DATABASES['default'] =  dj_database_url.config()
+DATABASES['default'] =  dj_database_url.config()
 
-    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-    ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*']
 
-    import os
+import os
 
-    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-    STATIC_ROOT = 'staticfiles'
+STATIC_ROOT = 'staticfiles'
 
-    STATIC_URL = '/static/'
+STATIC_URL = '/static/'
 
-    STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
-    #----------S3 settings--------------#
-    AWS_ACCESS_KEY_ID = 'AKIAJ4UKE27S27P2YVQQ'
-    AWS_SECRET_ACCESS_KEY = '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'
-    AWS_STORAGE_BUCKET_NAME = 'IqL20pXR03AAFhmqlB4S94ldQV5CGrADso5KjOLv'
+#----------S3 settings--------------#
+AWS_ACCESS_KEY_ID = 'AKIAJ4UKE27S27P2YVQQ'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'IqL20pXR03AAFhmqlB4S94ldQV5CGrADso5KjOLv'
 
-    STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-    AWS_STORAGE_BUCKET_NAME = 'letsmakeagroup'
-    #----------S3 settings--------------#
+STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+AWS_STORAGE_BUCKET_NAME = 'letsmakeagroup'
+#----------S3 settings--------------#
