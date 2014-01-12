@@ -1,5 +1,6 @@
 from django.conf.urls import patterns, include, url
 from LetsMakeAGroup.viewsDir.signin_up import views
+from django.conf import settings
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
@@ -38,4 +39,5 @@ urlpatterns = patterns('',
     url(r'^update_user_location$', 'LetsMakeAGroup.viewsDir.user.views.update_user_location'),
     url(r'^ignore_activity/(?P<id>\d+)$', 'LetsMakeAGroup.viewsDir.acivity.views.ignore_activity'),
     url(r'^search$', 'LetsMakeAGroup.viewsDir.index.views.search', name='search'),
+    url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
 )
