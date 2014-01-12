@@ -23,12 +23,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="settings.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="settings.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FinalProject/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="213" column="23" selection-start="7362" selection-end="7362" vertical-scroll-proportion="0.78417265" vertical-offset="2759" max-vertical-offset="3315">
+            <state line="143" column="19" selection-start="5274" selection-end="5288" vertical-scroll-proportion="-9.04" vertical-offset="1919" max-vertical-offset="3315">
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/LetsMakeAGroup/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.6978418" vertical-offset="944" max-vertical-offset="1500">
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -349,9 +360,18 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/FinalProject/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="213" column="23" selection-start="7362" selection-end="7362" vertical-scroll-proportion="0.78417265" vertical-offset="2759" max-vertical-offset="3315">
+        <state line="143" column="19" selection-start="5274" selection-end="5288" vertical-scroll-proportion="-9.04" vertical-offset="1919" max-vertical-offset="3315">
           <folding>
             <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LetsMakeAGroup/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.6978418" vertical-offset="944" max-vertical-offset="1500">
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
