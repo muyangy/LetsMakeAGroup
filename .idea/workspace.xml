@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="694198f6-ac24-4666-b0a1-c00e1f0ba56a" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/FinalProject/media/info-photos/anonymous.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LetsMakeAGroup/templates/basic.html" afterPath="$PROJECT_DIR$/LetsMakeAGroup/templates/basic.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LetsMakeAGroup/templates/index.html" afterPath="$PROJECT_DIR$/LetsMakeAGroup/templates/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FinalProject/settings.py" afterPath="$PROJECT_DIR$/FinalProject/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="LetsMakeAGroup.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,10 +27,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="settings.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="settings.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/FinalProject/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="0" selection-start="117" selection-end="117" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="3330">
+            <state line="195" column="15" selection-start="6788" selection-end="6788" vertical-scroll-proportion="0.3181818" vertical-offset="2720" max-vertical-offset="3330">
               <folding />
             </state>
           </provider>
@@ -72,10 +72,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="basic.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="basic.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LetsMakeAGroup/templates/basic.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="18" selection-start="246" selection-end="246" vertical-scroll-proportion="0.22813688" vertical-offset="0" max-vertical-offset="1455">
+            <state line="8" column="18" selection-start="246" selection-end="246" vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="1455">
               <folding />
             </state>
           </provider>
@@ -130,9 +130,9 @@
         <option value="$PROJECT_DIR$/LetsMakeAGroup/LetsMakeAGroup/templates/signin.html" />
         <option value="$PROJECT_DIR$/LetsMakeAGroup/FinalProject/settings.py" />
         <option value="$PROJECT_DIR$/LetsMakeAGroup/viewsDir/index/views.py" />
-        <option value="$PROJECT_DIR$/FinalProject/settings.py" />
         <option value="$PROJECT_DIR$/LetsMakeAGroup/templates/index.html" />
         <option value="$PROJECT_DIR$/LetsMakeAGroup/templates/basic.html" />
+        <option value="$PROJECT_DIR$/FinalProject/settings.py" />
       </list>
     </option>
   </component>
@@ -517,7 +517,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -635,13 +635,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FinalProject/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="117" selection-end="117" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3330">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/LetsMakeAGroup/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="134" column="36" selection-start="8244" selection-end="8244" vertical-scroll-proportion="-40.2" vertical-offset="0" max-vertical-offset="3720">
@@ -651,7 +644,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/LetsMakeAGroup/templates/basic.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="18" selection-start="246" selection-end="246" vertical-scroll-proportion="0.22813688" vertical-offset="0" max-vertical-offset="1455">
+        <state line="8" column="18" selection-start="246" selection-end="246" vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="1455">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FinalProject/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="195" column="15" selection-start="6788" selection-end="6788" vertical-scroll-proportion="0.3181818" vertical-offset="2720" max-vertical-offset="3330">
           <folding />
         </state>
       </provider>
