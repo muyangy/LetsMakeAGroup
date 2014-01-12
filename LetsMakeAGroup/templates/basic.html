@@ -8,27 +8,27 @@
 
     <!-- Note there is no responsive meta tag here -->
 
-    <link rel="shortcut icon" href="/static/ico/favicon.png">
+    <link rel="shortcut icon" href="{{STATIC_URL}}ico/favicon.png">
 
     {% block title %}
     {% endblock %}
 
     <!-- Bootstrap core CSS -->
-    <link href="/static/css/bootstrap.css" rel="stylesheet">
+    <link href="{{STATIC_URL}}css/bootstrap.css" rel="stylesheet">
 
 
 
     <!-- Custom styles for this template -->
-    <link href="/static/css/non-responsive.css" rel="stylesheet">
-    <link href="/static/css/group.css" rel="stylesheet">
+    <link href="{{STATIC_URL}}css/non-responsive.css" rel="stylesheet">
+    <link href="{{STATIC_URL}}css/group.css" rel="stylesheet">
 
     {% block additional_css %}
     {% endblock %}
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
       <!--[if lt IE 9]>
-        <script src="../static/pictures/../../static/assets/js/html5shiv.js"></script>
-        <script src="../static/pictures/../../static/assets/js/respond.min.js"></script>
+        <script src="..{{STATIC_URL}}pictures/../..{{STATIC_URL}}assets/js/html5shiv.js"></script>
+        <script src="..{{STATIC_URL}}pictures/../..{{STATIC_URL}}assets/js/respond.min.js"></script>
         <![endif]-->
   </head>
 
@@ -83,8 +83,8 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script type="text/javascript" src="/static/js/jquery.js"></script>
-    <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}js/jquery.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}js/bootstrap.min.js"></script>
     {% block additional_javascript %}
     {% endblock %}
   </body>

@@ -16,7 +16,7 @@
 
         <!-- right post-frame -->
         <div class = "right post-frame" id = "followers">
-          <p style="font-size: 25px; padding:20px; text-align:center;" ><img src="/static/pictures/{{activity.activitytype}}.png") style="max-height:45px;max-width:45px;">&nbsp&nbsp&nbsp{{activity.name}}</p>
+          <p style="font-size: 25px; padding:20px; text-align:center;" ><img src="{{STATIC_URL}}pictures/{{activity.activitytype}}.png") style="max-height:45px;max-width:45px;">&nbsp&nbsp&nbsp{{activity.name}}</p>
           <p style="font-size: 15px;">Time: {{activity.time}}</p>
           <p style="font-size: 15px;">Location: {{activity.address}}</p>
           <p style="font-size: 15px;">Description: {{activity.description}}</p>
@@ -27,7 +27,7 @@
             <span id="allfollowers">
           {%for follower in activity.getFollowers%}
             <a href = "{%url 'personalhome' follower.user.id%}"><img src="{%url 'infophoto' follower.user.info.id%}" style="max-height:50px; max-width:50px"/></a>
-            <!--  <img src="../static/pictures/Ying2.jpg" style="max-height:45px;max-width:45px;"/>-->
+            <!--  <img src="..{{STATIC_URL}}pictures/Ying2.jpg" style="max-height:45px;max-width:45px;"/>-->
             {% if follower.user.id == user.id %}<span hidden id="markfollowerhidden">1</span>{%endif%}
           {%endfor%}
         </span>
@@ -35,7 +35,7 @@
         <span hidden id="actidhidden">{{activity.id}}</span>
         <span hidden id="actuseridhidden">{{activity.user.id}}</span>
         <span hidden id="markhidden">0</span>
-          &nbsp&nbsp<img id = "joinpic" src="/static/pictures/join_icon2.png" style="cursor:pointer; max-height:50px;" >
+          &nbsp&nbsp<img id = "joinpic" src="{{STATIC_URL}}pictures/join_icon2.png" style="cursor:pointer; max-height:50px;" >
           </p>
         </div>
         <!-- end right post-frame -->
@@ -87,6 +87,6 @@
       {% endblock %}
 
     {% block additional_javascript %}
-    <script src="../static/js/group.js"></script>
-    <script src="../static/js/actdetail.js"></script>
+    <script src="{{STATIC_URL}}js/group.js"></script>
+    <script src="{{STATIC_URL}}js/actdetail.js"></script>
     {% endblock %}

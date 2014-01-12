@@ -23,7 +23,7 @@
         <p class="profile_font">{{pageowner.info.email}}</p>
       </div>
       <div class="row">
-          <div class="col-sm-12"><img src="../static/pictures/cover.gif" alt="cover" width="100%" class="img-rounded"></img></div>
+          <div class="col-sm-12"><img src="{{STATIC_URL}}pictures/cover.gif" alt="cover" width="100%" class="img-rounded"></img></div>
       </div>
       <div class="row">
         <div class="col-sm-12"><hr style="width:100%"></div>
@@ -52,7 +52,7 @@
                     <td>
                       <div class="row">
                         <div class="col-sm-3">
-                          <img src="/static/pictures/{{activity.activitytype}}small.png" alt="pic" width="100%"></img>
+                          <img src="{{STATIC_URL}}pictures/{{activity.activitytype}}small.png" alt="pic" width="100%"></img>
                         </div>
                         <div class="col-sm-9">
                           <address class="pull-right">
@@ -69,12 +69,12 @@
               </div>
             {% endfor %}
       <!--      <div class="col-sm-3" id="activity_1">
-                <img src="../static/pictures/BBQAct.jpg" alt="pic" class="img-thumbnail">
+                <img src="..{{STATIC_URL}}pictures/BBQAct.jpg" alt="pic" class="img-thumbnail">
                 <table class="table table-bordered">
                 <tr>
                   <td>
                     <div class="row">
-                      <div class="col-sm-3"><img src="../static/pictures/Dine.png" alt="pic" width="100%"></img></div>
+                      <div class="col-sm-3"><img src="..{{STATIC_URL}}pictures/Dine.png" alt="pic" width="100%"></img></div>
                       <div class="col-sm-9">
                         <address class="pull-right">
                           <strong>Twitter, Inc.</strong><br>
@@ -88,12 +88,12 @@
               </table>
             </div>
             <div class="col-sm-3" id="activity_1">
-                <img src="../static/pictures/golf.jpg" alt="pic" class="img-thumbnail">
+                <img src="..{{STATIC_URL}}pictures/golf.jpg" alt="pic" class="img-thumbnail">
                 <table class="table table-bordered">
                 <tr>
                   <td>
                     <div class="row">
-                      <div class="col-sm-3"><img src="../static/pictures/golf.png" alt="pic" width="100%"></img></div>
+                      <div class="col-sm-3"><img src="..{{STATIC_URL}}pictures/golf.png" alt="pic" width="100%"></img></div>
                       <div class="col-sm-9">
                         <address class="pull-right">
                           <strong>Home</strong><br>
@@ -108,12 +108,12 @@
               </table>
             </div>
             <div class="col-sm-3" id="activity_1">
-                <img src="../static/pictures/campping.jpg" alt="pic" class="img-thumbnail">
+                <img src="..{{STATIC_URL}}pictures/campping.jpg" alt="pic" class="img-thumbnail">
                 <table class="table table-bordered">
                 <tr>
                   <td>
                     <div class="row">
-                      <div class="col-sm-3"><img src="../static/pictures/Camping.png" alt="pic" width="100%"></img></div>
+                      <div class="col-sm-3"><img src="..{{STATIC_URL}}pictures/Camping.png" alt="pic" width="100%"></img></div>
                       <div class="col-sm-9">
                         <address class="pull-right">
                           <strong>Twitter, Inc.</strong><br>
@@ -128,12 +128,12 @@
               </table>
             </div>
             <div class="col-sm-3" id="activity_1">
-                <img src="../static/pictures/swim.jpg" alt="pic" width="100%" class="img-thumbnail">
+                <img src="..{{STATIC_URL}}pictures/swim.jpg" alt="pic" width="100%" class="img-thumbnail">
                 <table class="table table-bordered">
                 <tr>
                   <td>
                     <div class="row">
-                      <div class="col-sm-3"><img src="../static/pictures/Pool.png" alt="pic" width="100%"></img></div>
+                      <div class="col-sm-3"><img src="..{{STATIC_URL}}pictures/Pool.png" alt="pic" width="100%"></img></div>
                       <div class="col-sm-9">
                         <address class="pull-right">
                           <strong>Twitter, Inc.</strong><br>
@@ -148,12 +148,12 @@
               </table>
             </div>
             <div class="col-sm-3" id="activity_1">
-                <img src="../static/pictures/running.jpg" alt="pic" width="100%" class="img-thumbnail">
+                <img src="..{{STATIC_URL}}pictures/running.jpg" alt="pic" width="100%" class="img-thumbnail">
                 <table class="table table-bordered">
                 <tr>
                   <td>
                     <div class="row">
-                      <div class="col-sm-3"><img src="../static/pictures/running.png" alt="pic" width="100%"></img></div>
+                      <div class="col-sm-3"><img src="..{{STATIC_URL}}pictures/running.png" alt="pic" width="100%"></img></div>
                       <div class="col-sm-9">
                         <address class="pull-right">
                           <strong>Twitter, Inc.</strong><br>
@@ -180,7 +180,7 @@
               <tr>
                 <td>
                   <div class="row">
-                    <div class="col-sm-3"><img src="/static/pictures/{{activity.activitytype}}small.png" alt="pic" width="100%"></img></div>
+                    <div class="col-sm-3"><img src="{{STATIC_URL}}pictures/{{activity.activitytype}}small.png" alt="pic" width="100%"></img></div>
                     <div class="col-sm-9">
                       <address class="pull-right">
                         <strong>{{activity.activitytype}}</strong><br>
