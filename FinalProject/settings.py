@@ -211,6 +211,6 @@ if not DEBUG:
 
     STATIC_ROOT = 'staticfiles'
 
-    STATIC_URL = '/static/'
+    STATIC_URL = S3_URL
 
     STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
