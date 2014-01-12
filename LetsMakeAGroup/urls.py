@@ -39,5 +39,5 @@ urlpatterns = patterns('',
     url(r'^update_user_location$', 'LetsMakeAGroup.viewsDir.user.views.update_user_location'),
     url(r'^ignore_activity/(?P<id>\d+)$', 'LetsMakeAGroup.viewsDir.acivity.views.ignore_activity'),
     url(r'^search$', 'LetsMakeAGroup.viewsDir.index.views.search', name='search'),
-    url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+    (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
 )
