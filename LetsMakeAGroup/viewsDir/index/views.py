@@ -98,7 +98,7 @@ def personalhome(request, id):
         context = {"pageowner":pageowner, "organized":organized, "participated":participated }
         return render(request, 'home.html', context)
     otherpage = 1;
-    friendsrequests = UnConfirmedFriend.objects.filter(requestuser = request.user).filter(confirmuser = pageowner);
+    friendsrequests = UnConfirmedFriend.objects.filter(requestuser = request.user).filter(user = pageowner);
     print(friendsrequests)
     if (friendsrequests):
         addsent = "1"

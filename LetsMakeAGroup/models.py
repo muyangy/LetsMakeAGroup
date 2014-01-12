@@ -22,20 +22,18 @@ class Activity(models.Model):
     def getComments(self):
         return Comment.objects.filter(activity = self)
 
+#Followers of an activity
 class Followers(models.Model):
     activity = models.ForeignKey(Activity)
     user = models.ForeignKey(User)
 
+#friend model that need to be confirmed
 class UserFollowers(models.Model):
     user = models.ForeignKey(User, related_name='user')
     friends = models.ManyToManyField(User, related_name='user_friends')
     active = models.BooleanField(default=False)
     def __unicode__(self):
         return self.user
-
-class UnConfirmedFriend(models.Model):
-    requestuser = models.ForeignKey(User, related_name='requestuser')
-    confirmuser = models.ForeignKey(User, related_name='confirmuser')
 
 class IgnoredNearByActivity(models.Model):
     user = models.ForeignKey(User)
@@ -66,14 +64,19 @@ class Comment(models.Model):
 
 class Feedback(models.Model):
     activity = models.ForeignKey(Activity)
-    text = models.CharField(max_length=500,blank=True)
+    text = models.CharField(max_length=500)
     time = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User)
     picture = models.ImageField(upload_to="feedback-photos",blank=True)
 
-class UnreadActivityInvitation(models.Model):
+class UnreadMessage(models.Model):
     user = models.ForeignKey(User)
+
+class UnreadActivityInvitation(UnreadMessage):
     activityID = models.CharField(max_length=20)
+
+class UnConfirmedFriend(UnreadMessage):
+    requestuser = models.ForeignKey(User, related_name='requestuser')
 
 class UserLocation(models.Model):
     user = models.ForeignKey(User)

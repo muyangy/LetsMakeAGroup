@@ -147,7 +147,7 @@ def get_unread_messages(request):
     activities.append((activity.id, activity.name))
 
   userself = UserFollowers.objects.get(user = request.user)
-  allfriends = UnConfirmedFriend.objects.filter(confirmuser = userself)
+  allfriends = UnConfirmedFriend.objects.filter(user = userself)
   for friend in allfriends:
     uncomfirmedfriend_dic = {}
     uncomfirmedfriend_dic["requestfriendname"] = friend.requestuser.info.firstname+" "+friend.requestuser.info.lastname

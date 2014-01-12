@@ -25,7 +25,7 @@ def follow(request, id):
         relationself.friends.remove(newfriend)
         relationfriend.friends.remove(user)
     else:
-        newunconfirm = UnConfirmedFriend(requestuser = user, confirmuser = newfriend);
+        newunconfirm = UnConfirmedFriend(requestuser = user, user = newfriend);
         newunconfirm.save();
      #   relationself.friends.add(newfriend);
      #   relationfriend.friends.add(user);
@@ -38,7 +38,7 @@ def confirmfriendrequest(request, id):
         unconfirmed = UnConfirmedFriend.objects.get(id=id)
     except:
         return render(request,"pagenotfound.html")
-    confirmuser = unconfirmed.confirmuser
+    confirmuser = unconfirmed.user
     requestuser = unconfirmed.requestuser
     confirmuserrelation = UserFollowers.objects.get(user = confirmuser)
     requestuserrelation = UserFollowers.objects.get(user = requestuser)
@@ -108,7 +108,7 @@ def allUser(request):
     friends = request.user.get_friends()
     friendsrequests = UnConfirmedFriend.objects.filter(requestuser = request.user)
     for relation in friendsrequests:
-        unconfirmed.append(relation.confirmuser);
+        unconfirmed.append(relation.user);
     context['unconfirmed'] = unconfirmed;
     for other_user in people:
         if other_user.user in friends:
