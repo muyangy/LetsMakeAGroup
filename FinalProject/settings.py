@@ -211,4 +211,4 @@ AWS_STORAGE_BUCKET_NAME = 'IqL20pXR03AAFhmqlB4S94ldQV5CGrADso5KjOLv'
 STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 AWS_STORAGE_BUCKET_NAME = 'letsmakeagroup'
-#----------S3 settings--------------##
+#----------S3 settings--------------#
