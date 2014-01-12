@@ -195,11 +195,9 @@ if not DEBUG:
     S3_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
     AWS_ACCESS_KEY_ID = 'AKIAJ4UKE27S27P2YVQQ'
     AWS_SECRET_ACCESS_KEY = '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'
-    AWS_STORAGE_BUCKET_NAME = 'IqL20pXR03AAFhmqlB4S94ldQV5CGrADso5KjOLv'
 
     STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
     DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-    AWS_STORAGE_BUCKET_NAME = 'letsmakeagroup'
     #----------S3 settings--------------#
 
     # Parse database configuration from $DATABASE_URL
