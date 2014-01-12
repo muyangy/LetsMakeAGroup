@@ -182,7 +182,6 @@
           <li><div class="time">{{post.posttime}}</div>
             <div class="pic"><a href="{%url 'personalhome' post.user.id%}"><img src="{%url 'infophoto' post.user.info.id%}" style="max-height:70px; max-width:70px;"></a></div>
             <div class="version" style="font-size: 20px">{{post.user.info.firstname}} {{post.user.info.lastname}}</div>
-            <div class="behavior">Promotes Activity</div>
             <div class="number" style='background: url("{{STATIC_URL}}pictures/{{post.activitytype}}small.png") no-repeat scroll 0 0 transparent;'></div>
             <div class="content">
               <pre>
