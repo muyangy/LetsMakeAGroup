@@ -4,7 +4,7 @@ import dj_database_url
 
 PROJECT_ROOT = os.path.realpath(os.path.dirname(__file__)) + '/'
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -145,9 +145,9 @@ INSTALLED_APPS = (
     'storages',
 )
 
-TEMPLATE_CONTEXT_PROCESSORS = (
-   'django.core.context_processors.static',
-)
+#TEMPLATE_CONTEXT_PROCESSORS = (
+#   'django.core.context_processors.static',
+#)
 
 LOGIN_URL = '/signin.html'
 
