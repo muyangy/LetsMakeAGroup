@@ -18,9 +18,20 @@ import math
 @login_required
 def post_activity(request):
   if request.method == 'POST':
+    #validate POST
+    if not 'name' in request.POST or not request.POST['name']:
+      return redirect(reverse('index'))
+    if not 'address1' in request.POST or not 'address2' in request.POST or not 'city' in request.POST:
+      return redirect(reverse('index'))
+    if not 'date' in request.POST or not 'time' in request.POST:
+      return redirect(reverse('index'))
     #Because this form is in a popup table, we plan to validate the input in a javascript not here
     address = request.POST['address1'] + " " + request.POST['address2'] + ", " + request.POST['city']
     datetime = request.POST['date'] +" " + request.POST['time']
+
+    if not address or not datetime:
+      redirect(reverse('index'))
+
     if 'picture' in request.FILES and request.FILES['picture']:
       new_activity = Activity.objects.create(user         = request.user,
                                              name         = request.POST['name'],
