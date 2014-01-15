@@ -81,11 +81,13 @@ $(document).ready(function() {
     };
 
     $("#new_activity_form").submit(function(e){
+        var error = false;
         var name=$("input[name='name']")[0].value;
 
         if(name===""){
             $("#name_error").show();
             e.preventDefault();
+            error = true;
         } else {
             $("#name_error").hide();
         }
@@ -97,6 +99,7 @@ $(document).ready(function() {
         if(address==="") {
             $("#address_error").show();
             e.preventDefault();
+            error = true;
         } else {
             $("#address_error").hide();
         }
@@ -107,10 +110,14 @@ $(document).ready(function() {
         if(date==="" || time==="") {
             $("#time_error").show();
             e.preventDefault();
+            error = true;
         } else {
             $("#time_error").hide();
         }
 
+        if(error == true) {
+            return;
+        }
         address = $("input[name='address1']")[0].value;
         address += " " + $("input[name='address2']")[0].value;
         address += " " +$("input[name='city']")[0].value;
@@ -141,7 +148,7 @@ $(document).ready(function() {
                 console.log("Geocode failed " + status);
             }
         });
-
+        $(thisform).bind('submit');
     });//end of form.submit
 
 });
