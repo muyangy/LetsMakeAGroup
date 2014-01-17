@@ -75,7 +75,6 @@ def post_activity(request):
   return redirect(reverse('index'))
   #return render(request, 'index.html', {})
 
-@transaction.commit_on_success
 @login_required
 def getActivitiesAddress(request):
   activities = Activity.objects.all()
@@ -86,7 +85,6 @@ def getActivitiesAddress(request):
 
   return HttpResponse(json.JSONEncoder().encode(addresses))#encode dictionaries to json for javascript
 
-@transaction.commit_on_success
 @login_required
 def getActivityIntroductions(request):
   activities = Activity.objects.all()
@@ -102,7 +100,6 @@ def getActivityIntroductions(request):
   return HttpResponse(json.JSONEncoder().encode(introductions))
 
 @login_required
-@transaction.commit_on_success
 def get_feedbackphoto(request, id):
     feedback = get_object_or_404(Feedback, id=id)
     if not feedback.picture:
@@ -111,7 +108,6 @@ def get_feedbackphoto(request, id):
     return HttpResponse(feedback.picture, mimetype=content_type)
 
 
-@transaction.commit_on_success
 @login_required
 def activitydetail(request,id):
   try:

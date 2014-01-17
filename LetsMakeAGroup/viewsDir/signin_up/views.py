@@ -17,8 +17,6 @@ from django.core.mail import send_mail
 import smtplib
 from email.mime.text import MIMEText
 
-
-@transaction.commit_on_success
 def signin(request):
   return render(request, 'signin.html', {})
 
@@ -103,7 +101,6 @@ def confirm_registration(request, username, token):
     user.save()
     return render(request, 'confirmed.html', {})
 
-@transaction.commit_on_success
 def getbackpassword(request, username, token):
     context = {}
     user = get_object_or_404(User, username=username)
@@ -163,7 +160,7 @@ def forget_password(request):
     password = 'LetsMakeAGroupCMU'
 
     email_body = """
-Welcome back to Gumbls. Click the link below to reset your password:
+Click the link below to reset your password:
 
   http://%s%s
 """ % (request.get_host(),

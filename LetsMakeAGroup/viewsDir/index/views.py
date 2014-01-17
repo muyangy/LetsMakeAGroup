@@ -77,7 +77,6 @@ def join(request, id):
     return redirect("/")
 
 @login_required
-@transaction.commit_on_success
 def personalhome(request, id):
     try:
         pageowner = User.objects.get(id=id)

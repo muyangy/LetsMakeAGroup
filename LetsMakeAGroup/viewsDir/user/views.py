@@ -118,30 +118,6 @@ def allUser(request):
 
     return render(request, 'people.html', context)
 
-'''
-@login_required
-@transaction.commit_on_success
-def update_user_location(request):
-    print "foo"
-    #if missing location information
-    if not 'lat' in request.POST or not request.POST['lat']:
-        return HttpResponse(1)
-
-    if not 'lng' in request.POST or not request.POST['lng']:
-        return HttpResponse(1)
-
-    if UserLocation.objects.filter(user = request.user):
-        userLocation = UserLocation.objects.get(user = request.user)
-        userLocation.lat = request.POST['lat']
-        userLocation.lng = request.POST['lng']
-    else:
-        UserLocation.objects.create(user = request.user,
-                                    lat = request.POST['lat'],
-                                    lng = request.POST['lng']).save()
-
-    return HttpResponse(0)
-'''
-
 
 @login_required
 @transaction.commit_on_success
